@@ -1,6 +1,7 @@
 package com.abc.repositories;
 
 import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
@@ -16,5 +17,17 @@ public class CovoredVehiclesRepository {
 
 		em.persist(vehicle);
 	}
+
+	public EntityManager getEm() {
+		return em;
+	}
+
+	@PersistenceContext
+	public void setEm(EntityManager em) {
+		this.em = em;
+	}
+	
+	
+	
 
 }
