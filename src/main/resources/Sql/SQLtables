@@ -1,0 +1,115 @@
+create table policy(
+
+id bigint auto_increment not null,
+
+type varchar(30) not null,
+
+policyNo varchar(30) not null,
+
+startDate date not null,
+
+expireDate date not null,
+
+price int not null,
+
+customer_Id bigint not null,
+
+primary key (id),
+
+foreign key (customer_Id) references customers(id)
+
+);
+
+create table customers(
+
+id bigint auto_increment not null,
+
+name varchar(40) not null,
+
+email varchar(40) not null,
+
+phone varchar(40) not null,
+
+gender varchar(10) not null,
+
+last_four_ssn varchar(10) not null,
+
+dateOfBirth date not null,
+
+primary key (id)   
+
+);
+
+
+
+create table address(
+
+id bigint auto_increment not null,
+
+street1 varchar(50) not null,
+
+street2 varchar(50),
+
+city varchar(30) not null,
+
+state varchar(30) not null,
+
+zip varchar(20) not null,
+
+type varchar(20) not null,
+
+customer_id bigint not null,
+
+primary key (id),
+
+foreign key (customer_id) references customers(id)
+
+);
+
+
+
+create table covered_vehicles(
+
+id bigint auto_increment not null,
+
+make varchar(30) not null,
+
+model varchar(30) not null,
+
+year int(10) not null,
+
+color varchar(20),
+
+vin varchar(30) not null unique,
+
+policy_id bigint not null,
+
+is_active boolean default 1,
+
+primary key(id),
+
+foreign key (policy_id) references policy(id)
+
+);
+
+
+
+create table covered_drivers(
+
+id bigint auto_increment not null,
+
+name varchar(40),
+
+licenseNo varchar(30),
+
+license_state varchar(30),
+
+policy_id bigint not null,
+
+is_active boolean default 1,
+
+primary key (id),
+
+foreign key(policy_id) references policy(id)
+
+);
