@@ -19,25 +19,19 @@ import javax.persistence.Table;
 public class CustomerEntity {
 
 	@Id
-
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-
 	private Long id;
 
 	@Column(name = "name")
-
 	private String name;
 
 	@Column(name = "email")
-
 	private String email;
 
 	@Column(name = "phone")
-
 	private String phone;
 
 	@Column(name = "gender")
-
 	private String gender;
 
 	@Column(name = "last_four_ssn")
@@ -45,13 +39,10 @@ public class CustomerEntity {
 	private String lastFourSsn;
 
 	@Column(name = "dateOfBirth")
-
 	private Date date;
 
 	@OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-
 	@JoinColumn(name = "customer_id")
-
 	private List<AddressEntity> addresses;
 
 	public Long getId() {

@@ -19,11 +19,20 @@ public class PolicyMain {
 
 		cal.set(Calendar.YEAR, 2019);
 
-		cal.set(Calendar.MONTH, 7);
+		cal.set(Calendar.MONTH, 11);
 
-		cal.set(Calendar.DAY_OF_MONTH, 1);
+		cal.set(Calendar.DAY_OF_MONTH, 22);
 
 		Date startdate = cal.getTime();
+
+		Calendar cal2 = Calendar.getInstance();
+
+		cal2.set(Calendar.YEAR, 2022);
+
+		cal2.set(Calendar.MONTH, 11);
+
+		cal2.set(Calendar.DAY_OF_MONTH, 22);
+
 		Date expiredate = cal.getTime();
 
 		PolicyEntity pe = new PolicyEntity();
@@ -32,7 +41,6 @@ public class PolicyMain {
 		pe.setPrice(23);
 		pe.setStartDate(startdate);
 		pe.setExpireDate(expiredate);
-		
 		pr.save(pe);
 
 	}

@@ -2,8 +2,10 @@ package com.abc.entities;
 
 import java.util.Date;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -16,32 +18,25 @@ import javax.persistence.Table;
 public class PolicyEntity {
 
 	@Id
-
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-
 	private Long id;
 
 	@Column(name = "type")
-
 	private String type;
 
 	@Column(name = "policyNo")
-
 	private String policyNo;
 
-	@Column(name = "start")
-
+	@Column(name = "startDate")
 	private Date startDate;
 
-	@Column(name = "expire")
-
+	@Column(name = "expireDate")
 	private Date expireDate;
 
 	@Column(name = "price")
-
 	private Integer price;
 
-	@OneToOne
+	@OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	@JoinColumn(name = "Customer_Id")
 	private CustomerEntity customerEntity;
 
